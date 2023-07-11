@@ -4,11 +4,14 @@ const express = require('express')
 connectDB();
 
 const app = express()
-const port = 3000
+const port = 5000
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+
+// Middleware to parse JSON data
+app.use(express.json());
 
 // Available routes
 app.use('/api/auth', require('./routes/auth')); // here we are using the routes , /api/auth is the prefix for the routes
